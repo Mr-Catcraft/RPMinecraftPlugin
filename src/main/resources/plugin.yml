@@ -1,0 +1,22 @@
+name: RPPlugins
+version: 1.1
+main: org.mr_catcraft.rpplugins.RPPlugins
+api-version: '1.20'
+description: Простой ролевой плагин с командами /me, /do, /roll, /try и /rp help.
+commands:
+  me:
+    description: Описывает действие от третьего лица.
+    usage: /me <действие>
+  do:
+    description: Описывает происходящее действие или событие.
+    usage: /do <действие>
+  roll:
+    description: Бросает случайное число от 1 до указанного числа.
+    usage: /roll <число>
+  try:
+    description: Пытается выполнить действие с шансом 50/50.
+    usage: /try <действие>
+  rp:
+    description: Показывает справку по RP командам.
+    usage: /rp help
+

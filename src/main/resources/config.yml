@@ -1,0 +1,43 @@
+language: "en"
+
+settings:
+  message_distance: 100.0
+
+messages:
+  en:
+    player_only: "This command can only be used by players."
+    me_usage: "Usage: /me <action>"
+    do_usage: "Usage: /do <action>"
+    roll_usage: "Usage: /roll <number>"
+    try_usage: "Usage: /try <action>"
+    positive_number: "Please provide a positive number."
+    rolled: "rolled"
+    tries: "tries to"
+    succeeds: "and succeeds!"
+    fails: "and fails."
+    help_header: "Roleplay Plugin Commands:"
+    me_description: "Express an action in the first person."
+    do_description: "Describe an action or event happening nearby."
+    roll_description: "Roll a random number up to the specified maximum."
+    try_description: "Attempt an action with a 50/50 chance of success."
+    help_description: "Show this help message."
+    rp_help_usage: "Usage: /rp help"
+
+  ru:
+    player_only: "Только игроки могут использовать эти команды."
+    me_usage: "Использование: /me <действие>"
+    do_usage: "Использование: /do <действие>"
+    positive_number: "Число должно быть больше нуля."
+    roll_usage: "Использование: /roll <число>"
+    rolled: " выбросил "
+    tries: " пытается "
+    succeeds: " и удается!"
+    fails: " и не удается!"
+    try_usage: "Использование: /try <действие>"
+    help_header: "Справка по RP командам:"
+    me_description: "Описывает действие от третьего лица."
+    do_description: "Описывает происходящее действие или событие."
+    roll_description: "Бросает случайное число от 1 до указанного числа."
+    try_description: "Пытается выполнить действие с шансом 50/50."
+    help_description: "Показывает это сообщение."
+    rp_help_usage: "Использование: /rp help"
