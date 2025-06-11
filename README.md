@@ -1,3 +1,5 @@
+![Background](https://cdn.modrinth.com/data/cached_images/8b3c6021b616d2a90fe3691f2833b436065010a7.png)
+
 # RPPlugins
 
 **RPPlugins** is a roleplay-focused plugin for Minecraft servers (Spigot/Paper) 1.16.x - 1.21.1 that adds immersive in-character commands such as `/me`, `/do`, `/try`, and `/roll`. Messages are localized and only visible to nearby players — perfect for RP servers, events, or survival communities seeking deeper interaction.
