@@ -22,12 +22,12 @@ public class RPPlugins extends JavaPlugin {
         language = config.getString("language", "en");
         messageDistance = config.getDouble("settings.message_distance", 100.0);
 
-        getLogger().info("RPPlugin включен!");
+        getLogger().info("RPPlugin load!");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("RPPlugin отключен!");
+        getLogger().info("RPPlugin unload!");
     }
 
     private String getMessage(String key) {
@@ -131,10 +131,10 @@ public class RPPlugins extends JavaPlugin {
     private void handleRpCommand(Player player, String[] args) {
         if (args.length > 0 && args[0].equalsIgnoreCase("help")) {
             player.sendMessage(ChatColor.GOLD + getMessage("help_header"));
-            player.sendMessage(ChatColor.AQUA + "/me <действие>" + ChatColor.WHITE + " - " + getMessage("me_description"));
-            player.sendMessage(ChatColor.AQUA + "/do <действие>" + ChatColor.WHITE + " - " + getMessage("do_description"));
-            player.sendMessage(ChatColor.AQUA + "/roll <число>" + ChatColor.WHITE + " - " + getMessage("roll_description"));
-            player.sendMessage(ChatColor.AQUA + "/try <действие>" + ChatColor.WHITE + " - " + getMessage("try_description"));
+            player.sendMessage(ChatColor.AQUA + "/me <action>" + ChatColor.WHITE + " - " + getMessage("me_description"));
+            player.sendMessage(ChatColor.AQUA + "/do <action>" + ChatColor.WHITE + " - " + getMessage("do_description"));
+            player.sendMessage(ChatColor.AQUA + "/roll <number>" + ChatColor.WHITE + " - " + getMessage("roll_description"));
+            player.sendMessage(ChatColor.AQUA + "/try <action>" + ChatColor.WHITE + " - " + getMessage("try_description"));
             player.sendMessage(ChatColor.AQUA + "/rp help" + ChatColor.WHITE + " - " + getMessage("help_description"));
         } else {
             player.sendMessage(ChatColor.RED + getMessage("rp_help_usage"));
