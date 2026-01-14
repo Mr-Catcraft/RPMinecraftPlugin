@@ -1,22 +1,31 @@
-name: RPPlugins
-version: 1.1
-main: org.mr_catcraft.rpplugins.RPPlugins
-api-version: '1.20'
-description: Простой ролевой плагин с командами /me, /do, /roll, /try и /rp help.
+name: RPPlugin
+version: '1.3'
+main: core.RPPlugin.RPPlugin
+api-version: '1.16'
+authors: [Mr_Catcraft]
+description: A roleplay plugin with commands /me, /do, /roll, /try, /whisper, /yell, /emote and /rp help.
 commands:
   me:
-    description: Описывает действие от третьего лица.
-    usage: /me <действие>
+    description: Describe an action in the third person.
+    usage: /me <action>
   do:
-    description: Описывает происходящее действие или событие.
-    usage: /do <действие>
+    description: Describe an action or event happening nearby.
+    usage: /do <action>
   roll:
-    description: Бросает случайное число от 1 до указанного числа.
-    usage: /roll <число>
+    description: Roll a random number or dice.
+    usage: /roll <number> or /roll <min>-<max> or /roll <amount>d<sides>[+/-<modifier>]
   try:
-    description: Пытается выполнить действие с шансом 50/50.
-    usage: /try <действие>
+    description: Attempt an action with a configurable chance of success.
+    usage: /try <action>
+  whisper:
+    description: Send a message with a short distance.
+    usage: /whisper <message>
+  yell:
+    description: Send a message with a long distance.
+    usage: /yell <message>
+  emote:
+    description: Perform an emote.
+    usage: /emote <emote> [target]
   rp:
-    description: Показывает справку по RP командам.
+    description: Show help for RP commands.
     usage: /rp help
-
