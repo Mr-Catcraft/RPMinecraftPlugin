@@ -1,84 +1,72 @@
-![Background](https://cdn.modrinth.com/data/cached_images/8b3c6021b616d2a90fe3691f2833b436065010a7.png)
-
 # RPPlugin
 
-**RPPlugin** is a comprehensive roleplay-focused plugin for Minecraft servers Spigot/Paper 1.16.x - 1.21.1 that enhances immersive roleplay with advanced character interaction commands. Perfect for RP servers, events, or survival communities seeking deeper in-character communication.
+A roleplay plugin for Minecraft servers running Paper, Spigot, or Bukkit 1.16 - 26.3. It adds in-character communication commands for roleplay servers, events, and survival communities.
 
-## 🎭 Features
+[![License](https://img.shields.io/badge/license-GPL--3.0-blue)](LICENSE)
+[![Version](https://img.shields.io/badge/version-1.3-green)]()
+[![Platform](https://img.shields.io/badge/platform-Paper%20%7C%20Spigot%20%7C%20Bukkit-lightgrey)]()
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.16--26.3-green)]()
 
-### Core Roleplay Commands
-- **`/me <action>`**: Describe your character's actions in the third person
-- **`/do <action>`**: Describe surrounding events and environmental actions
-- **`/try <action>`**: Attempt an action with configurable success chance
-- **`/roll <number>`**: Roll dice with advanced dice notation support
+## What is it
 
-### New Enhanced Features
-- **`/whisper <message>`**: Send messages with short distance for private conversations
-- **`/yell <message>`**: Broadcast messages with extended range for shouting
-- **`/emote <emote> [target]`**: Perform predefined emotes with optional targets
-- **Advanced Dice System**: Support for complex dice expressions (2d6+3, 1d20, etc.)
-- **Customizable Message Formats**: Fully customizable output messages with color codes
-- **Distance Control**: Toggle distance-based message delivery on/off
-- **Emote Library**: Built-in collection of common roleplay emotes
+RPPlugin provides commands for character actions, environmental descriptions, dice rolls, chance-based attempts, private whispers, loud yells, and emotes. It is built for server administrators who want to enable immersive roleplay without installing a full roleplay framework.
 
-## 💬 Commands
+Messages are delivered to nearby players based on configurable distance, so local chat remains local. Formats and messages are configurable, with English and Russian translations included. Additional languages can be added by copying a message section in `config.yml`.
 
-| Command | Description | Usage Examples |
-|---------|-------------|----------------|
-| **`/me`** | Describe your character's actions | `/me smiles warmly` |
-| **`/do`** | Describe events in the world | `/do A cold breeze passes by` |
-| **`/roll`** | Roll dice with various formats | `/roll 20`, `/roll 5-15`, `/roll 2d6+3` |
-| **`/try`** | Attempt an action with chance | `/try open the rusty door` |
-| **`/whisper`** | Send a quiet message | `/whisper Hey, come here` |
-| **`/yell`** | Shout a message loudly | `/yell Help! I'm over here!` |
-| **`/emote`** | Perform an emote | `/emote wave`, `/emote smile John` |
-| **`/rp help`** | Show command help | `/rp help` |
+The plugin has no external dependencies and uses the standard Bukkit command system. Tab completion is available for player names, dice examples, emotes, and `/rp help`.
 
-## 🎲 Dice System Examples
+## Features
 
-The plugin supports multiple dice notation formats:
+- Adds `/me`, `/do`, `/try`, `/roll`, `/whisper`, `/yell`, `/emote`, and `/rp help`.
+- Supports distance-based message delivery. `use_distance` toggles the check, and `message_distance` sets the default range. `/yell` uses twice that distance.
+- Rolls random numbers and dice with simple, range, and dice notation formats. Examples: `/roll 20`, `/roll 5-15`, `/roll d6`, `/roll 2d10`, `/roll 1d20+5`, `/roll 3d6+2`.
+- Attempts actions with a configurable success chance through `settings.try_success_chance`. Default is `0.5`.
+- Sends whispers and yells with distinct formats.
+- Performs predefined emotes with an optional target. Emotes are defined under `emotes` in `config.yml`.
+- Formats every command output through `formats` in `config.yml`, with color code support.
+- Ships with English and Russian messages under `messages`. Set `language` to `en` or `ru`.
+- Provides tab completion for player names, roll examples, emotes, and `/rp help`.
+- Has no external dependencies.
 
-```yaml
-/roll 20           # Roll 1-20 (traditional)
-/roll 5-15         # Roll between 5 and 15
-/roll d6           # Roll one six-sided die
-/roll 2d10         # Roll two ten-sided dice
-/roll 1d20+5       # Roll d20 and add 5
-/roll 3d6+2        # Roll three d6 and add 2
-```
+## Installation
 
-## 😄 Available Emotes
+1. Download the RPPlugin `1.3` JAR.
+2. Place the JAR in your server's `plugins` folder.
+3. Restart the server or load the plugin with a plugin manager.
+4. Edit `plugins/RPPlugin/config.yml` to match your server.
+5. Run `/rp help` in game to see available commands.
 
-The plugin includes a library of common roleplay emotes:
+No additional setup is required. The plugin uses the default command permissions, so all players can use the commands unless your permission plugin restricts them.
 
-- `wave` - Waves at someone
-- `cry` - Cries
-- `dance` - Dances happily
-- `laugh` - Laughs out loud
-- `bow` - Bows respectfully
-- `nod` - Nods in agreement
-- `shake` - Shakes head in disagreement
-- `shrug` - Shrugs shoulders
-- `smile` - Smiles warmly
-- `wink` - Winks playfully
+## Usage
 
-You can easily add more emotes in the configuration file!
+| Command | Permission | Description |
+|---|---|---|
+| `/me <action>` | None | Describes your character's action in the third person. |
+| `/do <action>` | None | Describes an event or environmental action nearby. |
+| `/roll <number>` | None | Rolls a random number from 1 to the given value. |
+| `/roll <min>-<max>` | None | Rolls a random number in the given range. |
+| `/roll <amount>d<sides>[+/-<modifier>]` | None | Rolls dice with optional modifier. Examples: `2d6+3`, `1d20`. |
+| `/try <action>` | None | Attempts an action with a configurable chance of success. |
+| `/whisper <message>` | None | Sends a quiet message to nearby players. |
+| `/yell <message>` | None | Sends a loud message to players within twice the default distance. |
+| `/emote <emote> [target]` | None | Performs a predefined emote, optionally targeting a player. |
+| `/rp help` | None | Shows command help. |
 
-## ⚙️ Configuration
+The plugin does not define permission nodes in `plugin.yml`. Access is controlled by the server's permission system only if you add nodes manually or use a command restriction plugin.
 
-The plugin features extensive configuration with multiple language support:
+## Configuration
+
+The plugin generates `plugins/RPPlugin/config.yml`. The most important settings are:
 
 ```yaml
-# Language settings
 language: "en"
 
-# Plugin settings
 settings:
-  message_distance: 100.0    # Default message range
-  use_distance: true         # Enable/disable distance check
-  try_success_chance: 0.5    # Success chance for /try command
+  message_distance: 100.0
+  use_distance: true
+  try_success_chance: 0.5
 
-# Message formatting
 formats:
   me: "&d* %player% %action% *"
   do: "&e* %action% (%player%) *"
@@ -91,7 +79,6 @@ formats:
   yell: "&c[Yell] %player%: %message%"
   emote: "&6* %player% %emote% %target% *"
 
-# Emote definitions
 emotes:
   wave: "waves"
   cry: "cries"
@@ -104,23 +91,79 @@ emotes:
   smile: "smiles"
   wink: "winks"
 
-# Multi-language support
 messages:
   en:
-    # English messages...
+    player_only: "This command can only be used by players."
+    me_usage: "Usage: /me <action>"
+    do_usage: "Usage: /do <action>"
+    roll_usage: "Usage: /roll <number> or /roll <min>-<max> or /roll <amount>d<sides>[+/-<modifier>]"
+    try_usage: "Usage: /try <action>"
+    whisper_usage: "Usage: /whisper <message>"
+    yell_usage: "Usage: /yell <message>"
+    emote_usage: "Usage: /emote <emote> [target]"
+    positive_number: "Please provide a positive number."
+    rolled: "rolled"
+    tries: "tries to"
+    succeeds: "and succeeds!"
+    fails: "and fails."
+    help_header: "Roleplay Plugin Commands:"
+    me_description: "Express an action in the first person."
+    do_description: "Describe an action or event happening nearby."
+    roll_description: "Roll a random number or dice."
+    try_description: "Attempt an action with a configurable chance of success."
+    whisper_description: "Send a message with a short distance."
+    yell_description: "Send a message with a long distance."
+    emote_description: "Perform an emote."
+    help_description: "Show this help message."
+    rp_help_usage: "Usage: /rp help"
+    emote_not_found: "Emote not found. Use /rp help to see available emotes."
+
   ru:
-    # Russian messages...
+    player_only: "Только игроки могут использовать эти команды."
+    me_usage: "Использование: /me <действие>"
+    do_usage: "Использование: /do <действие>"
+    roll_usage: "Использование: /roll <число> или /roll <мин>-<макс> или /roll <кол-во>d<грани>[+/-<модификатор>]"
+    try_usage: "Использование: /try <действие>"
+    whisper_usage: "Использование: /whisper <сообщение>"
+    yell_usage: "Использование: /yell <сообщение>"
+    emote_usage: "Использование: /emote <эмоция> [цель]"
+    positive_number: "Число должно быть больше нуля."
+    rolled: " выбросил "
+    tries: " пытается "
+    succeeds: " и удается!"
+    fails: " и не удается!"
+    help_header: "Справка по RP командам:"
+    me_description: "Описывает действие от третьего лица."
+    do_description: "Описывает происходящее действие или событие."
+    roll_description: "Бросает случайное число или кости."
+    try_description: "Пытается выполнить действие с настраиваемым шансом."
+    whisper_description: "Отправляет сообщение на короткое расстояние."
+    yell_description: "Отправляет сообщение на большое расстояние."
+    emote_description: "Выполняет эмоцию."
+    help_description: "Показывает это сообщение."
+    rp_help_usage: "Использование: /rp help"
+    emote_not_found: "Эмоция не найдена. Используйте /rp help для списка эмоций."
 ```
 
-## 🔧 Installation
+`language` selects the message set. Built-in values are `en` and `ru`. `message_distance` controls the default range for `/me`, `/do`, `/try`, `/whisper`, and `/emote`. `/yell` uses twice this value. `use_distance` disables distance checks when set to `false`, making messages global. `try_success_chance` sets the success probability for `/try` and accepts values from `0.0` to `1.0`. `formats` defines output for each command and supports `&` color codes and placeholders. `emotes` maps emote keys to action text. Add new emotes by adding keys under `emotes`.
 
-1. Download the latest `RPPlugin.jar`
-2. Place it in your server's `plugins/` directory
-3. Restart your server
-4. Configure `plugins/RPPlugin/config.yml` to your preferences
-5. Use `/rp help` in-game to see available commands
+Messages are under `messages`. To add a language, copy the `en` or `ru` block, translate the values, and set `language` to the new key.
 
-## 📋 Requirements
+## Compatibility
 
-- **Minecraft Server**: Spigot or Paper 1.16.x - 1.21.1
-- **Java**: Version 21 or higher recommended
+- Minecraft: 1.16 - 26.3
+- Platform: Paper, Spigot, Bukkit
+- Java: any version supported by the server platform; no specific Java version is required
+
+No known incompatibilities with other plugins or libraries.
+
+## Technologies
+
+- Language: Java
+- Platform API: Bukkit, Spigot, Paper
+- Build: standard plugin JAR
+- Key dependencies: none
+
+## License
+
+This project is distributed under the [GNU General Public License v3.0](LICENSE).
